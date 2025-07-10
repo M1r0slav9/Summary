@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Проходьте тести на логіку та кмітливість онлайн. Відповіді з поясненнями." />
+  <title>Онлайн тести на кмітливість</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Онлайн тести на кмітливість</h1>
+    <h2>Перевірте свою логіку та мислення!</h2>
+    <nav>
+      <a href="movies.html">→ Рекомендовані фільми</a>
+    </nav>
+    <button aria-label="Поділитися цією сторінкою" onclick="sharePage()">
+        Поділитися
+    </button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Тестові запитання</h2>
+
+      <div class="question">
+        <p><strong>Питання 1:</strong> У мене є чотири ноги, але я не можу ходити. Хто я?</p>
+        <button onclick="toggleAnswer('answer1')">Показати відповідь</button>
+        <p class="answer" id="answer1">Це стіл!</p>
+      </div>
+
+      <div class="question">
+        <p><strong>Питання 2:</strong> Чим більше я беру, тим більше залишаю позаду. Що це?</p>
+        <button onclick="toggleAnswer('answer2')">Показати відповідь</button>
+        <p class="answer" id="answer2">Сліди.</p>
+      </div>
+
+      <div class="question">
+        <p><strong>Питання 3:</strong> Що падає, але ніколи не піднімається?</p>
+        <button onclick="toggleAnswer('answer3')">Показати відповідь</button>
+        <p class="answer" id="answer3">Дощ.</p>
+      </div>
+    </section>
+  </main>
+<script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
+    }
+
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Онлайн тести на кмітливість',
+          url: window.location.href
+        })
+        .then(() => console.log('Сторінку надіслано!'))
+        .catch((error) => console.error('Помилка поширення:', error));
+      } else {
+        alert('Ваш браузер не підтримує функцію поширення');
+      }
+    }
+  </script>
+</body>
+</html>
